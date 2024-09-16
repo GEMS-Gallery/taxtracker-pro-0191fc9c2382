@@ -6,7 +6,7 @@ import TaxPayerForm from './components/TaxPayerForm';
 import SearchBar from './components/SearchBar';
 
 interface TaxPayer {
-  tid: bigint;
+  tid?: bigint;
   firstName: string;
   lastName: string;
   address: string;

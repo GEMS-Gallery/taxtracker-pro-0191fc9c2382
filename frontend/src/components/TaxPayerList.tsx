@@ -2,7 +2,7 @@ import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
 interface TaxPayer {
-  tid: bigint;
+  tid?: bigint;
   firstName: string;
   lastName: string;
   address: string;
@@ -25,9 +25,9 @@ const TaxPayerList: React.FC<TaxPayerListProps> = ({ taxPayers }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {taxPayers.map((taxPayer) => (
-            <TableRow key={taxPayer.tid.toString()}>
-              <TableCell>{taxPayer.tid.toString()}</TableCell>
+          {taxPayers.map((taxPayer, index) => (
+            <TableRow key={taxPayer.tid?.toString() ?? index}>
+              <TableCell>{taxPayer.tid?.toString() ?? 'N/A'}</TableCell>
               <TableCell>{taxPayer.firstName}</TableCell>
               <TableCell>{taxPayer.lastName}</TableCell>
               <TableCell>{taxPayer.address}</TableCell>
